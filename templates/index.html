@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Shell Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Reverse Shell Admin Panel</h1>
+            <button id="logoutBtn" class="btn-danger">Sair</button>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="terminal">Terminal</button>
+            <button class="tab-btn" data-tab="files">Explorador de Arquivos</button>
+            <button class="tab-btn" data-tab="upload">Upload</button>
+        </div>
+
+        <div class="tab-content">
+            <!-- Terminal Tab -->
+            <div id="terminal" class="tab-pane active">
+                <div class="terminal-container">
+                    <div id="terminalOutput"></div>
+                    <div class="terminal-input">
+                        <span class="prompt">$</span>
+                        <input type="text" id="commandInput" autocomplete="off" autofocus>
+                    </div>
+                </div>
+                <div class="quick-commands">
+                    <h3>Comandos Rápidos:</h3>
+                    <button data-command="whoami">whoami</button>
+                    <button data-command="pwd">pwd</button>
+                    <button data-command="ls -la">ls -la</button>
+                    <button data-command="ifconfig">ifconfig</button>
+                    <button data-command="ps aux">ps aux</button>
+                    <button data-command="netstat -tulpn">netstat -tulpn</button>
+                </div>
+            </div>
+
+            <!-- File Explorer Tab -->
+            <div id="files" class="tab-pane">
+                <div class="file-explorer">
+                    <div class="file-path">
+                        <span id="currentPath">/</span>
+                    </div>
+                    <div id="fileList" class="file-list">
+                        <div class="loading">Carregando...</div>
+                    </div>
+                    <div class="file-actions">
+                        <button id="downloadBtn" disabled>Download</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload Tab -->
+            <div id="upload" class="tab-pane">
+                <div class="upload-container">
+                    <h3>Enviar Arquivo</h3>
+                    <form id="uploadForm">
+                        <input type="file" id="fileInput" name="file">
+                        <button type="submit">Enviar</button>
+                    </form>
+                    <div id="uploadMessage" class="message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
