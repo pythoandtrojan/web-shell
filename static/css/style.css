@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #121212;
+    --bg-darker: #0a0a0a;
+    --bg-light: #1e1e1e;
+    --accent: #00bcd4;
+    --accent-hover: #0097a7;
+    --text: #e0e0e0;
+    --text-muted: #9e9e9e;
+    --danger: #f44336;
+    --success: #4caf50;
+    --warning: #ff9800;
+}
+
+body {
+    font-family: 'Consolas', 'Monaco', monospace;
+    background-color: var(--bg-dark);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--bg-darker), var(--bg-dark));
+}
+
+.login-container {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.login-header h1 {
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.login-header p {
+    color: var(--text-muted);
+}
+
+.login-form .input-group {
+    margin-bottom: 1rem;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+.login-form input {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--bg-dark);
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: var(--text);
+    font-family: inherit;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+    background-color: var(--accent-hover);
+}
+
+.message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.message.error {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: var(--danger);
+}
+
+.message.success {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: var(--success);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #333;
+}
+
+header h1 {
+    color: var(--accent);
+}
+
+.btn-danger {
+    padding: 0.5rem 1rem;
+    background-color: var(--danger);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    opacity: 0.9;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #333;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-btn.active {
+    color: var(--accent);
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent);
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.terminal-container {
+    background-color: var(--bg-darker);
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    height: 400px;
+    overflow-y: auto;
+}
+
+#terminalOutput {
+    white-space: pre-wrap;
+    font-family: 'Consolas', 'Monaco', monospace;
+    margin-bottom: 1rem;
+    min-height: 350px;
+}
+
+.terminal-input {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: var(--accent);
+    margin-right: 0.5rem;
+    font-weight: bold;
+}
+
+#commandInput {
+    flex: 1;
+    padding: 0.5rem;
+    background-color: transparent;
+    border: none;
+    color: var(--text);
+    font-family: 'Consolas', 'Monaco', monospace;
+    outline: none;
+}
+
+.quick-commands {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.quick-commands h3 {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+}
+
+.quick-commands button {
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-light);
+    border: 1px solid #333;
+    color: var(--text);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.quick-commands button:hover {
+    background-color: #2a2a2a;
+}
+
+.file-explorer {
+    background-color: var(--bg-light);
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.file-path {
+    padding: 0.5rem;
+    background-color: var(--bg-darker);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+.file-list {
+    margin-bottom: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.file-item, .dir-item {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+}
+
+.dir-item {
+    color: var(--accent);
+}
+
+.file-item:hover, .dir-item:hover {
+    background-color: #2a2a2a;
+}
+
+.file-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.file-actions button {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.file-actions button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+.upload-container {
+    background-color: var(--bg-light);
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.upload-container h3 {
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+#uploadForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#fileInput {
+    padding: 0.5rem;
+    background-color: var(--bg-dark);
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: var(--text);
+}
+
+#uploadForm button {
+    padding: 0.75rem;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+}
